@@ -6,7 +6,7 @@
     <meta name="description" content="OTHER SPACE STUDIO — 전시, 영상, 콘텐츠로 자극에서 벗어나는 다른 공간을 만듭니다." />
     <meta name="theme-color" content="#171717" />
     <title>OTHER SPACE STUDIO</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=4" />
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -38,16 +38,46 @@
           <span>LOOK HERE · BUY THIS · WATCH NEXT · DON'T MISS OUT · TRENDING NOW ·</span>
         </div>
 
-        <div class="hero-stage">
-          <p class="eyebrow">AN ALTERNATIVE TO OVERSTIMULATION</p>
-          <h1 id="hero-title" class="wordmark" aria-label="OTHER SPACE">
-            <span class="word word-other">OTHER</span>
-            <span class="word word-space">SPACE</span>
-          </h1>
-          <div class="hero-orbit" aria-hidden="true">
-            <span class="orbit-line"></span>
-            <span class="orbit-dot"></span>
+        <div class="hero-stage plan-stage">
+          <div class="plan-meta">
+            <p class="eyebrow">AN ALTERNATIVE TO OVERSTIMULATION</p>
+            <p>PLAN 000 / OTHER SPACE<br />SCALE 1:100</p>
           </div>
+          <h1 id="hero-title" class="sr-only">OTHER SPACE STUDIO</h1>
+
+          <div class="plan-board" aria-label="공간을 선택하는 삼각형 스튜디오 도면">
+            <svg class="plan-drawing" viewBox="0 0 1000 620" role="img" aria-label="세 개의 창작 공간으로 구성된 삼각형 평면도">
+              <path class="plan-line line-outer" pathLength="1" d="M500 28 L946 572 L54 572 Z" />
+              <path class="plan-line line-inner delay-1" pathLength="1" d="M500 28 L500 572 M278 300 L722 300" />
+              <path class="plan-line line-inner delay-2" pathLength="1" d="M278 300 L500 572 L722 300" />
+              <path class="plan-line line-dimension delay-3" pathLength="1" d="M34 590 L966 590 M34 580 L34 600 M966 580 L966 600 M30 572 L482 20 M20 562 L40 582" />
+              <circle class="plan-pivot" cx="500" cy="300" r="26" />
+              <circle class="plan-pivot-small" cx="500" cy="300" r="4" />
+              <g class="plan-measure" aria-hidden="true">
+                <text x="500" y="610" text-anchor="middle">8,400</text>
+                <text x="88" y="300" transform="rotate(-51 88 300)">6,200</text>
+                <text x="518" y="292">VOID 00</text>
+                <text x="510" y="52">N</text>
+              </g>
+            </svg>
+
+            <a class="plan-node node-signal" href="#signal" aria-label="콘텐츠 공간 SIGNAL로 이동">
+              <span class="node-icon icon-triangle" aria-hidden="true"></span>
+              <span class="node-copy"><b>03 / SIGNAL</b><small>CONTENT</small></span>
+            </a>
+            <a class="plan-node node-room" href="#room" aria-label="전시 공간 ROOM으로 이동">
+              <span class="node-icon icon-square" aria-hidden="true"></span>
+              <span class="node-copy"><b>01 / ROOM</b><small>EXHIBITION</small></span>
+            </a>
+            <a class="plan-node node-screen" href="#screen" aria-label="영상 공간 SCREEN으로 이동">
+              <span class="node-icon icon-rect" aria-hidden="true"></span>
+              <span class="node-copy"><b>02 / SCREEN</b><small>MOVING IMAGE</small></span>
+            </a>
+
+            <div class="plan-center" aria-hidden="true"><span>OTHER</span><span>SPACE</span></div>
+          </div>
+
+          <p class="plan-instruction"><span>SELECT A SPACE</span><span>도형을 눌러 공간으로 이동하세요 ↗</span></p>
         </div>
 
         <div class="hero-footer">
@@ -93,7 +123,7 @@
         <div class="section-index light"><span>01—03</span><span>WHAT WE MAKE</span></div>
         <h2 id="practice-title" class="sr-only">우리가 만드는 것</h2>
 
-        <article class="practice-panel panel-room" tabindex="0">
+        <article class="practice-panel panel-room" id="room" tabindex="0">
           <div class="practice-meta">
             <span>01</span>
             <span>ROOM</span>
@@ -109,7 +139,7 @@
           <p class="panel-caption">A SPACE TO STAY</p>
         </article>
 
-        <article class="practice-panel panel-screen" tabindex="0">
+        <article class="practice-panel panel-screen" id="screen" tabindex="0">
           <div class="practice-meta">
             <span>02</span>
             <span>SCREEN</span>
@@ -125,7 +155,7 @@
           <p class="panel-caption">AN IMAGE THAT REMAINS</p>
         </article>
 
-        <article class="practice-panel panel-signal" tabindex="0">
+        <article class="practice-panel panel-signal" id="signal" tabindex="0">
           <div class="practice-meta">
             <span>03</span>
             <span>SIGNAL</span>
@@ -181,6 +211,6 @@
     </footer>
 
     <div class="toast" role="status" aria-live="polite">CONTACT CHANNEL OPENING SOON</div>
-    <script src="./script.js"></script>
+    <script src="./script.js?v=4"></script>
   </body>
 </html>
