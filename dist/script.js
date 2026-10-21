@@ -8,6 +8,8 @@ const copyButton = document.querySelector('[data-copy-text]');
 const planBoard = document.querySelector('.plan-board');
 const planLinks = document.querySelectorAll('.plan-node');
 const homeLink = document.querySelector('.brand');
+const timecodeTarget = document.querySelector('[data-timecode]');
+const galleryRoom = document.querySelector('.exhibition-room');
 
 modeButton?.addEventListener('click', () => {
   const isOutside = body.classList.toggle('outside-mode');
@@ -73,6 +75,33 @@ function updateSeoulTime() {
 }
 updateSeoulTime();
 setInterval(updateSeoulTime, 1000);
+
+function updateTimecode() {
+  if (!timecodeTarget) return;
+  const elapsed = performance.now();
+  const totalFrames = Math.floor(elapsed / (1000 / 24));
+  const frames = totalFrames % 24;
+  const seconds = Math.floor(totalFrames / 24) % 60;
+  const minutes = Math.floor(totalFrames / 1440) % 60;
+  const hours = Math.floor(totalFrames / 86400);
+  timecodeTarget.textContent = [hours, minutes, seconds, frames].map((value) => String(value).padStart(2, '0')).join(':');
+  requestAnimationFrame(updateTimecode);
+}
+updateTimecode();
+
+galleryRoom?.addEventListener('pointermove', (event) => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const bounds = galleryRoom.getBoundingClientRect();
+  const x = (event.clientX - bounds.left) / bounds.width - .5;
+  const y = (event.clientY - bounds.top) / bounds.height - .5;
+  const photo = galleryRoom.querySelector('.gallery-photo');
+  if (photo) photo.style.transform = `scale(1.1) translate3d(${x * -1.8}%, ${y * -1.8}%, 0)`;
+});
+
+galleryRoom?.addEventListener('pointerleave', () => {
+  const photo = galleryRoom.querySelector('.gallery-photo');
+  if (photo) photo.style.transform = '';
+});
 
 copyButton?.addEventListener('click', async () => {
   const message = copyButton.dataset.copyText || '';
